@@ -56,19 +56,23 @@ jobs:
           commits_authoring: Jared Acebes, jared.acebes@gmail.com, SuperaNova
           extras_css: *earth
 
-      # 3. Achievements — GitHub achievement badges (compact grid)
-      - name: Achievements panel
+      # 3. AniList — favorite anime, manga & characters. Uses AniList's public
+      #    API (no token needed for the data); set plugin_anilist_user below.
+      - name: AniList panel
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.achievements.svg
+          filename: metrics.anilist.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: SuperaNova
           template: classic
           base: ""
           config_timezone: Asia/Manila
-          plugin_achievements: yes
-          plugin_achievements_display: compact
-          plugin_achievements_secrets: yes
+          plugin_anilist: yes
+          plugin_anilist_user: Noverrik
+          plugin_anilist_medias: anime, manga
+          plugin_anilist_sections: favorites, watching, reading, characters
+          plugin_anilist_limit: 2
+          plugin_anilist_limit_characters: 22
           extras_css: *earth
 
       # 4. Repositories — pinned/featured repos + community (following, sponsoring)
