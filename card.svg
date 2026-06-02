@@ -1,0 +1,103 @@
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="450" height="220" viewBox="0 0 450 220" fill="none" role="img" aria-labelledby="title-id">
+      
+      <title id="title-id">Noverrik&apos;s Anime vs Manga Overview</title>
+      <style>
+        
+    /* stylelint-disable selector-class-pattern, keyframes-name-pattern */
+    .header {
+      fill: #FABD2F;
+      font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
+      animation: fadeInAnimation 0.8s ease-in-out forwards;
+    }
+
+    [data-testid="card-title"] text {
+      fill: #FABD2F;
+    }
+
+    [data-testid="main-card-body"] circle {
+      stroke: #FE8019;
+    }
+
+    [data-testid="card-bg"] {
+      fill: #3C383600;
+    }
+
+    [data-testid="main-card-body"] text {
+      fill: #D5C4A1;
+    }
+
+    .stat {
+      fill: #D5C4A1;
+      font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif;
+    }
+
+    .stat-label {
+      fill: #D5C4A1;
+      font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif;
+    }
+
+    .stat-value {
+      fill: #FE8019;
+      font: 700 14px 'Segoe UI', Ubuntu, Sans-Serif;
+    }
+
+    .section-title {
+      fill: #FE8019;
+      font: 600 11px 'Segoe UI', Ubuntu, Sans-Serif;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    
+    .stagger {
+      opacity: 0;
+      animation: fadeInAnimation 0.3s ease-in-out forwards;
+    }
+    
+
+    
+
+    
+    @keyframes fadeInAnimation {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  
+  
+        .col-title { fill: #FE8019; font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; }
+      </style>
+      
+    <rect
+      data-testid="card-bg"
+      x="0.5"
+      y="0.5"
+      rx="8"
+      height="219"
+      width="449"
+      fill="#3C383600"
+      
+      stroke-width="2"
+    />
+  
+      <g transform="translate(20, 35)" data-testid="card-title">
+        <text class="header">Noverrik&apos;s Anime vs Manga Overview</text>
+      </g>
+
+      <g data-testid="main-card-body">
+        <g transform="translate(25, 55)">
+          <text class="col-title" x="0" y="12">Anime</text>
+          <g transform="translate(0, 26)"><g transform="translate(0, 0)" class="stagger" style="animation-delay:450ms"><text x="0" y="12" class="stat">Entries</text><text x="190" y="12" class="stat-value" text-anchor="end">405</text></g><g transform="translate(0, 22)" class="stagger" style="animation-delay:530ms"><text x="0" y="12" class="stat">Mean score</text><text x="190" y="12" class="stat-value" text-anchor="end">74.6</text></g><g transform="translate(0, 44)" class="stagger" style="animation-delay:610ms"><text x="0" y="12" class="stat">Std dev</text><text x="190" y="12" class="stat-value" text-anchor="end">12.6</text></g><g transform="translate(0, 66)" class="stagger" style="animation-delay:690ms"><text x="0" y="12" class="stat">Episodes</text><text x="190" y="12" class="stat-value" text-anchor="end">5,548</text></g><g transform="translate(0, 88)" class="stagger" style="animation-delay:770ms"><text x="0" y="12" class="stat">Time</text><text x="190" y="12" class="stat-value" text-anchor="end">88.7d</text></g></g>
+          
+          
+        </g>
+
+        <g transform="translate(235, 55)">
+          <text class="col-title" x="0" y="12">Manga</text>
+          <g transform="translate(0, 26)"><g transform="translate(0, 0)" class="stagger" style="animation-delay:450ms"><text x="0" y="12" class="stat">Entries</text><text x="190" y="12" class="stat-value" text-anchor="end">861</text></g><g transform="translate(0, 22)" class="stagger" style="animation-delay:530ms"><text x="0" y="12" class="stat">Mean score</text><text x="190" y="12" class="stat-value" text-anchor="end">68.1</text></g><g transform="translate(0, 44)" class="stagger" style="animation-delay:610ms"><text x="0" y="12" class="stat">Std dev</text><text x="190" y="12" class="stat-value" text-anchor="end">13.9</text></g><g transform="translate(0, 66)" class="stagger" style="animation-delay:690ms"><text x="0" y="12" class="stat">Chapters</text><text x="190" y="12" class="stat-value" text-anchor="end">54,874</text></g><g transform="translate(0, 88)" class="stagger" style="animation-delay:770ms"><text x="0" y="12" class="stat">Volumes</text><text x="190" y="12" class="stat-value" text-anchor="end">3,278</text></g></g>
+          
+          
+        </g>
+      </g>
+    </svg>
+  

@@ -11,7 +11,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      # 1. Overview — profile header + recent activity (commits, PRs, issues)
       - name: Overview panel
         uses: lowlighter/metrics@latest
         with:
@@ -34,9 +33,6 @@ jobs:
             h2 { color: #fabd2f !important; }
             a, .blue { color: #fe8019 !important; }
 
-      # 2. Languages — languages YOU authored (in-depth: clones repos, counts
-      #    your commits). Slower (a few min) but only runs monthly. Timeouts are
-      #    set generously so the analysis completes instead of getting cut off.
       - name: Languages panel
         uses: lowlighter/metrics@latest
         with:
@@ -56,26 +52,6 @@ jobs:
           commits_authoring: Jared Acebes, jared.acebes@gmail.com, SuperaNova
           extras_css: *earth
 
-      # 3. AniList — favorite anime, manga & characters. Uses AniList's public
-      #    API (no token needed for the data); set plugin_anilist_user below.
-      - name: AniList panel
-        uses: lowlighter/metrics@latest
-        with:
-          filename: metrics.anilist.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          user: SuperaNova
-          template: classic
-          base: ""
-          config_timezone: Asia/Manila
-          plugin_anilist: yes
-          plugin_anilist_user: Noverrik
-          plugin_anilist_medias: anime, manga
-          plugin_anilist_sections: favorites, watching, reading, characters
-          plugin_anilist_limit: 2
-          plugin_anilist_limit_characters: 22
-          extras_css: *earth
-
-      # 4. Repositories — pinned/featured repos + community (following, sponsoring)
       - name: Repositories panel
         uses: lowlighter/metrics@latest
         with:
