@@ -49,18 +49,21 @@ jobs:
           plugin_languages_ignored: jupyter notebook, assembly, html, css, kotlin, tsx
           extras_css: *earth
 
-      # 3. Commit calendar — isometric full-year commit history
-      - name: Calendar panel
+      # 3. Coding habits — when & how you work (active hours, days, facts)
+      - name: Habits panel
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.calendar.svg
+          filename: metrics.habits.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: SuperaNova
           template: classic
           base: ""
           config_timezone: Asia/Manila
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
           extras_css: *earth
 
       # 4. Repositories — pinned/featured repos + community (following, sponsoring)
