@@ -1,0 +1,33 @@
+name: AniCards Time to Minutes
+# Whenever card.svg changes on main, convert its anime "Time" stat from days
+# to minutes via tools/anicards_time_to_minutes.py and commit the result back.
+on:
+  push:
+    branches: [main]
+    paths: ["card.svg"]
+
+permissions:
+  contents: write
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Convert Time from days to minutes
+        # The tool exits non-zero when there's nothing in days (e.g. already
+        # converted); that's fine here, so don't fail the job on it.
+        run: python3 tools/anicards_time_to_minutes.py card.svg || true
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain card.svg)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add card.svg
+            git commit -m "chore: card.svg Time days -> minutes [skip ci]"
+            git push
+          else
+            echo "card.svg already in minutes; nothing to do."
+          fi
