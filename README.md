@@ -1,7 +1,7 @@
-<h1 align="center"><samp>SUPERNOVA STATBOARD</samp></h1>
+<h1 align="center"><samp>JARED STATBOARD</samp></h1>
 
 <p align="center">
-	<samp>earth-tone dashboard view of GitHub activity</samp>
+	<samp>what I've been building, auto-updated monthly</samp>
 </p>
 
 <p align="center">
