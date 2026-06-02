@@ -4,6 +4,13 @@
 	<samp>what I've been building, auto-updated monthly</samp>
 </p>
 
-<p align="center">
-	<img src="metrics.terminal.svg" alt="GitHub Metrics Terminal Statboard" />
-</p>
+<table align="center">
+  <tr>
+    <td width="50%" valign="top"><img src="metrics.overview.svg" width="100%" alt="Overview — activity & commits" /></td>
+    <td width="50%" valign="top"><img src="metrics.languages.svg" width="100%" alt="Most-used languages" /></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><img src="metrics.calendar.svg" width="100%" alt="Commit calendar" /></td>
+    <td width="50%" valign="top"><img src="metrics.repos.svg" width="100%" alt="Repositories & community" /></td>
+  </tr>
+</table>

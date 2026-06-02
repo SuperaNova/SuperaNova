@@ -10,36 +10,17 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Generate Terminal Statboard
+      # 1. Overview — profile header + recent activity (commits, PRs, issues)
+      - name: Overview panel
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.terminal.svg
+          filename: metrics.overview.svg
           token: ${{ secrets.METRICS_TOKEN }}
-          user: SuperaNova 
-          template: terminal
-          base: header, activity, community, repositories, metadata
+          user: SuperaNova
+          template: classic
+          base: header, activity
           config_timezone: Asia/Manila
-          
-          # Plugins for widgets
-          plugin_languages: yes
-          plugin_languages_details: bytes-size, percentage
-          plugin_languages_limit: 10
-          plugin_languages_ignored: jupyter notebook, assembly, html, css, kotlin, tsx
-          
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
-          
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
-          plugin_habits_charts: yes
-          
-          plugin_achievements: yes
-          plugin_achievements_display: compact
-
-          # Earth-tone styling
-          extras_css: |
+          extras_css: &earth |
             :root {
               --color-calendar-graph-day-bg: #3c3836;
               --color-calendar-graph-day-L1-bg: #b57614;
@@ -47,7 +28,49 @@ jobs:
               --color-calendar-graph-day-L3-bg: #fabd2f;
               --color-calendar-graph-day-L4-bg: #fe8019;
             }
-            .terminal {
-              color: #ebdbb2;
-            }
-            h1, h2, h3, .stat { color: #d79921; }
+            body { background: #282828; }
+            svg { color: #d5c4a1; }
+            h2 { color: #fabd2f !important; }
+            a, .blue { color: #fe8019 !important; }
+
+      # 2. Languages — most-used languages breakdown
+      - name: Languages panel
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: SuperaNova
+          template: classic
+          base: ""
+          config_timezone: Asia/Manila
+          plugin_languages: yes
+          plugin_languages_details: bytes-size, percentage
+          plugin_languages_limit: 8
+          plugin_languages_ignored: jupyter notebook, assembly, html, css, kotlin, tsx
+          extras_css: *earth
+
+      # 3. Commit calendar — isometric full-year commit history
+      - name: Calendar panel
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.calendar.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: SuperaNova
+          template: classic
+          base: ""
+          config_timezone: Asia/Manila
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          extras_css: *earth
+
+      # 4. Repositories — pinned/featured repos + community (following, sponsoring)
+      - name: Repositories panel
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.repos.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: SuperaNova
+          template: classic
+          base: repositories, community
+          config_timezone: Asia/Manila
+          extras_css: *earth
