@@ -56,20 +56,19 @@ jobs:
           commits_authoring: Jared Acebes, jared.acebes@gmail.com, SuperaNova
           extras_css: *earth
 
-      # 3. Coding habits — when & how you work (active hours, days, facts)
-      - name: Habits panel
+      # 3. Achievements — GitHub achievement badges (compact grid)
+      - name: Achievements panel
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.habits.svg
+          filename: metrics.achievements.svg
           token: ${{ secrets.METRICS_TOKEN }}
           user: SuperaNova
           template: classic
           base: ""
           config_timezone: Asia/Manila
-          plugin_habits: yes
-          plugin_habits_from: 200
-          plugin_habits_days: 14
-          plugin_habits_facts: yes
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_achievements_secrets: yes
           extras_css: *earth
 
       # 4. Repositories — pinned/featured repos + community (following, sponsoring)
