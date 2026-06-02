@@ -10,7 +10,7 @@
  --color-calendar-graph-day-L3-bg: #fabd2f;
  --color-calendar-graph-day-L4-bg: #fe8019;
 }
-body { background: #282828; }
+body { background: #3c3836; }
 svg { color: #d5c4a1; }
 h2 { color: #fabd2f !important; }
 a, .blue { color: #fe8019 !important; }</style>

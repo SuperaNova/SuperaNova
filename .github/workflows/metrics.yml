@@ -7,6 +7,7 @@ on:
 jobs:
   github-metrics:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     permissions:
       contents: write
     steps:
@@ -28,12 +29,14 @@ jobs:
               --color-calendar-graph-day-L3-bg: #fabd2f;
               --color-calendar-graph-day-L4-bg: #fe8019;
             }
-            body { background: #282828; }
+            body { background: #3c3836; }
             svg { color: #d5c4a1; }
             h2 { color: #fabd2f !important; }
             a, .blue { color: #fe8019 !important; }
 
-      # 2. Languages — most-used languages breakdown
+      # 2. Languages — languages YOU authored (in-depth: clones repos, counts
+      #    your commits). Slower (a few min) but only runs monthly. Timeouts are
+      #    set generously so the analysis completes instead of getting cut off.
       - name: Languages panel
         uses: lowlighter/metrics@latest
         with:
@@ -44,9 +47,13 @@ jobs:
           base: ""
           config_timezone: Asia/Manila
           plugin_languages: yes
-          plugin_languages_details: bytes-size, percentage
+          plugin_languages_indepth: yes
+          plugin_languages_analysis_timeout: 30
+          plugin_languages_analysis_timeout_repositories: 15
+          plugin_languages_details: lines, bytes-size, percentage
           plugin_languages_limit: 8
           plugin_languages_ignored: jupyter notebook, assembly, html, css, kotlin, tsx
+          commits_authoring: Jared Acebes, jared.acebes@gmail.com, SuperaNova
           extras_css: *earth
 
       # 3. Coding habits — when & how you work (active hours, days, facts)
@@ -63,7 +70,6 @@ jobs:
           plugin_habits_from: 200
           plugin_habits_days: 14
           plugin_habits_facts: yes
-          plugin_habits_charts: yes
           extras_css: *earth
 
       # 4. Repositories — pinned/featured repos + community (following, sponsoring)
