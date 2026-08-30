@@ -1,0 +1,63 @@
+name: AniCards Refresh
+# Refreshes card.svg from the AniCards API on a schedule, instead of
+# regenerating it by hand in the AniCards web UI. After fetching, the anime
+# "Time" stat (rendered in days by the API) is converted to minutes in the
+# same job, since a commit made with the default GITHUB_TOKEN won't trigger
+# anicards-minutes.yml on push.
+on:
+  schedule:
+    - cron: "0 0 * * *" # daily, 08:00 Asia/Manila
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+# Prevent overlapping runs from racing each other's push.
+concurrency:
+  group: anicards-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch card.svg from AniCards
+        env:
+          CARD_TYPE: animeMangaOverview
+          USER_ID: "7998127"
+          VARIATION: default
+        # Fetch into a temp file and validate its content before overwriting
+        # card.svg, since a bad cardType/userId returns HTTP 400 with an SVG
+        # error body rather than a non-2xx that curl -f would already catch.
+        run: |
+          set -euo pipefail
+          url="https://api.anicards.alpha49.com/card.svg?cardType=${CARD_TYPE}&userId=${USER_ID}&variation=${VARIATION}&colorPreset=custom&titleColor=%23FABD2F&backgroundColor=%233C383600&textColor=%23D5C4A1&circleColor=%23FE8019&_t=$(date +%s)"
+          curl -sSfL --retry 3 --retry-delay 5 --retry-all-errors "$url" -o card.new.svg
+          if ! grep -q "Anime vs Manga Overview" card.new.svg || ! grep -q "stat-value" card.new.svg; then
+            echo "::error::Fetched card.new.svg does not look like a valid AniCards Overview card; refusing to overwrite card.svg." >&2
+            cat card.new.svg >&2
+            exit 1
+          fi
+          mv card.new.svg card.svg
+
+      - name: Convert Time from days to minutes
+        # A freshly fetched card is always in days, so a non-zero exit here
+        # means the API's output format changed - fail loudly rather than
+        # silently committing an unconverted card (unlike anicards-minutes.yml,
+        # which fails soft for the "already converted" case instead).
+        run: python3 tools/anicards_time_to_minutes.py card.svg
+
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain card.svg)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add card.svg
+            git commit -m "chore: refresh card.svg from AniCards [skip ci]"
+            git push
+          else
+            echo "card.svg unchanged; nothing to do."
+          fi
