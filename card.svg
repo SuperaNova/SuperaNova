@@ -65,7 +65,7 @@
     }
   
   
-        .col-title { fill: #FE8019; font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; }
+        .col-title { fill: #D5C4A1; font: 700 14px 'Segoe UI', Ubuntu, Sans-Serif; }
       </style>
       
     <rect
@@ -81,20 +81,25 @@
     />
   
       <g transform="translate(20, 35)" data-testid="card-title">
-        <text class="header">Noverrik&apos;s Anime vs Manga Overview</text>
+        <text x="0" y="0" class="header">Noverrik&apos;s Anime vs Manga Overview</text>
       </g>
 
       <g data-testid="main-card-body">
+        <rect x="225" y="55" width="1" height="140" fill="#D5C4A1" opacity="0.12" />
         <g transform="translate(25, 55)">
-          <text class="col-title" x="0" y="12">Anime</text>
-          <g transform="translate(0, 26)"><g transform="translate(0, 0)" class="stagger" style="animation-delay:450ms"><text x="0" y="12" class="stat">Entries</text><text x="190" y="12" class="stat-value" text-anchor="end">405</text></g><g transform="translate(0, 22)" class="stagger" style="animation-delay:530ms"><text x="0" y="12" class="stat">Mean score</text><text x="190" y="12" class="stat-value" text-anchor="end">74.6</text></g><g transform="translate(0, 44)" class="stagger" style="animation-delay:610ms"><text x="0" y="12" class="stat">Std dev</text><text x="190" y="12" class="stat-value" text-anchor="end">12.6</text></g><g transform="translate(0, 66)" class="stagger" style="animation-delay:690ms"><text x="0" y="12" class="stat">Episodes</text><text x="190" y="12" class="stat-value" text-anchor="end">5,549</text></g><g transform="translate(0, 88)" class="stagger" style="animation-delay:770ms"><text x="0" y="12" class="stat">Time</text><text x="190" y="12" class="stat-value" text-anchor="end">127,728m</text></g></g>
+          <rect x="0" y="1" width="3" height="13" rx="1" fill="#FE8019" />
+          <text x="10" y="12" class="col-title">Anime</text>
+          <rect x="0" y="19" width="190" height="1" fill="#FE8019" opacity="0.35" />
+          <g transform="translate(0, 26)"><g transform="translate(0, 0)" class="stagger" style="animation-delay:450ms"><text x="0" y="12" class="stat">Entries</text><text style="font-size:13.40px" x="190" y="12" class="stat-value" text-anchor="end">405</text></g><g transform="translate(0, 22)" class="stagger" style="animation-delay:530ms"><text x="0" y="12" class="stat">Mean score</text><text style="font-size:13.40px" x="190" y="12" class="stat-value" text-anchor="end">74.6</text></g><g transform="translate(0, 44)" class="stagger" style="animation-delay:610ms"><text x="0" y="12" class="stat">Std dev</text><text x="190" y="12" class="stat-value" text-anchor="end">12.6</text></g><g transform="translate(0, 66)" class="stagger" style="animation-delay:690ms"><text x="0" y="12" class="stat">Episodes</text><text style="font-size:13.30px" x="190" y="12" class="stat-value" text-anchor="end">5,549</text></g><g transform="translate(0, 88)" class="stagger" style="animation-delay:770ms"><text x="0" y="12" class="stat">Time</text><text style="font-size:13.60px" x="190" y="12" class="stat-value" text-anchor="end">127,728m</text></g></g>
           
           
         </g>
 
         <g transform="translate(235, 55)">
-          <text class="col-title" x="0" y="12">Manga</text>
-          <g transform="translate(0, 26)"><g transform="translate(0, 0)" class="stagger" style="animation-delay:450ms"><text x="0" y="12" class="stat">Entries</text><text x="190" y="12" class="stat-value" text-anchor="end">988</text></g><g transform="translate(0, 22)" class="stagger" style="animation-delay:530ms"><text x="0" y="12" class="stat">Mean score</text><text x="190" y="12" class="stat-value" text-anchor="end">67.8</text></g><g transform="translate(0, 44)" class="stagger" style="animation-delay:610ms"><text x="0" y="12" class="stat">Std dev</text><text x="190" y="12" class="stat-value" text-anchor="end">14.1</text></g><g transform="translate(0, 66)" class="stagger" style="animation-delay:690ms"><text x="0" y="12" class="stat">Chapters</text><text x="190" y="12" class="stat-value" text-anchor="end">71,646</text></g><g transform="translate(0, 88)" class="stagger" style="animation-delay:770ms"><text x="0" y="12" class="stat">Volumes</text><text x="190" y="12" class="stat-value" text-anchor="end">3,321</text></g></g>
+          <rect x="0" y="1" width="3" height="13" rx="1" fill="#FABD2F" />
+          <text x="10" y="12" class="col-title">Manga</text>
+          <rect x="0" y="19" width="190" height="1" fill="#FABD2F" opacity="0.35" />
+          <g transform="translate(0, 26)"><g transform="translate(0, 0)" class="stagger" style="animation-delay:450ms"><text x="0" y="12" class="stat">Entries</text><text style="font-size:13.50px" x="190" y="12" class="stat-value" text-anchor="end">988</text></g><g transform="translate(0, 22)" class="stagger" style="animation-delay:530ms"><text x="0" y="12" class="stat">Mean score</text><text style="font-size:13.50px" x="190" y="12" class="stat-value" text-anchor="end">67.8</text></g><g transform="translate(0, 44)" class="stagger" style="animation-delay:610ms"><text x="0" y="12" class="stat">Std dev</text><text x="190" y="12" class="stat-value" text-anchor="end">14.1</text></g><g transform="translate(0, 66)" class="stagger" style="animation-delay:690ms"><text x="0" y="12" class="stat">Chapters</text><text x="190" y="12" class="stat-value" text-anchor="end">71,647</text></g><g transform="translate(0, 88)" class="stagger" style="animation-delay:770ms"><text x="0" y="12" class="stat">Volumes</text><text x="190" y="12" class="stat-value" text-anchor="end">3,321</text></g></g>
           
           
         </g>
